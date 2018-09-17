@@ -20,6 +20,7 @@ class SuggestsController < ApplicationController
   end
 
   private
+
   def suggests_params
     params.require(:suggest)
           .permit :user_id, :name, :description, :category_id
