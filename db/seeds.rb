@@ -81,7 +81,8 @@ User.create!(name:  "phuoctuyen",
              password: "11111111",
              password_confirmation: "11111111",
              address: "điện phước ,điện bàn , quảng nam",
-             phone: "01219399936"
+             phone: "01219399936",
+             confirmed_at: Time.now.utc
              )
 
 User.create!(name:  "duongtruong",
@@ -90,7 +91,8 @@ User.create!(name:  "duongtruong",
              password_confirmation: "foobar",
              role: 1,
              address: "fdsfdsfdsfdsfdsfsdasdsad",
-             phone: "3454343242"
+             phone: "3454343242",
+             confirmed_at: Time.now.utc
              )
 
 User.create!(name:  "vanle",
@@ -99,7 +101,8 @@ User.create!(name:  "vanle",
              password_confirmation: "123123",
              role: 1,
              address: "quang nam",
-             phone: "01667272741"
+             phone: "01667272741",
+             confirmed_at: Time.now.utc
              )
 
 10.times do |n|
@@ -113,7 +116,8 @@ User.create!(name:  "vanle",
                password_confirmation: password,
                role: 0,
                address: content,
-               phone: "01667272741")
+               phone: "01667272741",
+               confirmed_at: Time.now.utc)
 end
 
 p "Created #{User.count} users"

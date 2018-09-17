@@ -49,7 +49,7 @@
           <li>
             <%= link_to t("order"), viewcart_carts_path, class: "glyphicon glyphicon-shopping-cart" %>
           </li>
-          <% if logged_in? %>
+          <% if user_signed_in? %>
             <li class="right_to ">
               <a href="#" class="dropdown-toggle " data-toggle="dropdown">
                 <b class="glyphicon glyphicon-user"></b><%= t "account" %> <b class="caret"></b>
@@ -61,17 +61,17 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to t("log_out"), logout_path, method: :delete,
+                  <%= link_to t("log_out"), destroy_user_session_path, method: :delete,
                     class: "glyphicon glyphicon-log-in" %>
                 </li>
               </ul>
             </li>
           <% else %>
             <li>
-              <%= link_to t("signup"), signup_path,class: "glyphicon glyphicon-log-in" %>
+              <%= link_to t("signup"), new_user_registration_path,class: "glyphicon glyphicon-log-in" %>
             </li>
             <li>
-              <%= link_to t("login"), login_path,class: "glyphicon glyphicon-log-in" %>
+              <%= link_to t("login"), new_user_session_path,class: "glyphicon glyphicon-log-in" %>
             </li>
           <% end %>
           <li>

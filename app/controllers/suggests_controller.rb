@@ -1,6 +1,5 @@
 class SuggestsController < ApplicationController
-  before_action :logged_in_user, only: %i(create new)
-  before_action :category_all, only: %i(create new)
+  before_action :authenticate_user!, only: %i(create new)
 
   def index; end
 

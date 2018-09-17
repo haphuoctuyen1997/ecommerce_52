@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   include SessionsHelper
 
   protect_from_forgery with: :exception
@@ -17,17 +19,18 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def logged_in_user
-    return if logged_in?
-    flash[:danger] = t "application.please_login"
-    redirect_to login_path
-  end
-
-  def admin_user?
-    redirect_to root_path unless current_user.admin?
+  def after_sign_in_path_for resource
+    resource.admin? ? backend_path : root_path
   end
 
   def category_all
     @categories = Category.all
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: User::USER_PARAMS)
+    devise_parameter_sanitizer.permit(:account_update, keys: User::USER_PARAMS)
   end
 end
