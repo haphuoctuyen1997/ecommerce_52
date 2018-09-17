@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="product-image">
-          <%= image_tag @product.picture, alt: @product.picture, size: Settings.size.product_detail %>
+          <%= image_tag  @product.picture.url || "thumb_default.png", alt: @product.picture, size: Settings.size.product_detail %>
         </div>
         <div class="product-ratting"></div>
         <div class="product-comment"></div>
@@ -31,7 +31,7 @@
       <h4>
         <i class="fa fa-paper-plane-o"><%= t "leaver" %></i>
       </h4>
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <div class="form-group">
           <%= render partial: "comments/form_comment",
             locals:{url: comments_path, comment: @comment, product: @product} %>
