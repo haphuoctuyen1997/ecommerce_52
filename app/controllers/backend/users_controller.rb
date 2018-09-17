@@ -49,6 +49,14 @@ class Backend::UsersController < Backend::BaseController
     redirect_to backend_users_path
   end
 
+  def role
+    @user.admin? ? @user.member! : @user.admin!
+    respond_to do |format|
+      format.json{render json: {user: @user}}
+      format.html
+    end
+  end
+
   private
 
   def user_params

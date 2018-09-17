@@ -27,3 +27,11 @@ order:
   pending: 0
   accepted: 1
   rejected: 2
+admin_product_perpage: 10
+data_name: 0
+data_price: 1
+data_quantity: 2
+data_description: 3
+data_number_of_order: 5
+data_category_id: 6
+number_order: 0

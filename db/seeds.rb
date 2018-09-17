@@ -5,25 +5,68 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-3.times do |n|
-  name  = Faker::Name.name
-  Category.create!(name:  name,
+Category.create!(name:  "Laptop",
                 parent_id: 0)
+Category.create!(name:  "Mobile phone",
+                parent_id: 0)
+Category.create!(name:  "Other",
+                parent_id: 0)
+Category.create!(name:  "Dell",
+                parent_id: 1)
+Category.create!(name:  "Assus",
+                parent_id: 1)
+Category.create!(name:  "Lenovo",
+                parent_id: 1)
+Category.create!(name:  "Samsung",
+                parent_id: 2)
+Category.create!(name:  "Iphone",
+                parent_id: 2)
+Category.create!(name:  "HTC",
+                parent_id: 2)
+3.times do |n|
+  name  = "Dell#{n}"
+  Category.create!(name:  name,
+                parent_id: 4)
+end
+3.times do |n|
+  name  = "Assus#{n}"
+  Category.create!(name:  name,
+                parent_id: 5)
+end
+3.times do |n|
+  name  = "Lenovo#{n}"
+  Category.create!(name:  name,
+                parent_id: 6)
+end
+3.times do |n|
+  name  = "Samsung#{n}"
+  Category.create!(name:  name,
+                parent_id: 7)
+end
+3.times do |n|
+  name  = "Iphone#{n}"
+  Category.create!(name:  name,
+                parent_id: 8)
+end
+3.times do |n|
+  name  = "HTC#{n}"
+  Category.create!(name:  name,
+                parent_id: 9)
 end
 
 5.times do |n|
   name  = Faker::Name.name
   Category.create!(name:  name,
-                parent_id: rand(1..3))
+                parent_id: 3)
 end
 
-5.times do |n|
-  name  = Faker::Name.name
-  Category.create!(name:  name,
-                parent_id: rand(3..8))
-end
+# 5.times do |n|
+#   name  = Faker::Name.name
+#   Category.create!(name:  name,
+#                 parent_id: rand(3..8))
+# end
 
-10.times do |n|
+50.times do |n|
   name  = Faker::Name.name
   content = Faker::Lorem.sentence(5)
   Product.create!(name:  name,
@@ -31,7 +74,7 @@ end
                quantity: rand(5..30),
                description: content,
                picture: "default.png",
-               category_id: rand(1..5))
+               category_id: rand(10..23))
 end
 User.create!(name:  "phuoctuyen",
              email: "haphuoctuyen1997@gmail.com",
@@ -101,15 +144,15 @@ end
 
 end
 
-Category.create!(name:  "cccccccccccc",
-             parent_id: 1
-             )
-p "Created #{Category.count} categoriess"
+# # Category.create!(name:  "cccccccccccc",
+# #              parent_id: 1
+# #              )
+# p "Created #{Category.count} categoriess"
 
-Suggest.create!(name:  "aaaaaaaaaaaa",
-             description: "bbbbbbbbbbbbbbb",
+Suggest.create!(name:  "San pham moi",
+             description: "San pham hot",
              status: 1,
              user_id: 1,
-             category_id: 1
+             category_id: 10
              )
 p "Created #{Suggest.count} suggets"

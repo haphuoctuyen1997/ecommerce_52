@@ -95,3 +95,5 @@ en:
       not_comment: "not create comment"
   application:
     please_login: "Please login!"
+  product:
+    img_less_than: "should be less than 5MB"

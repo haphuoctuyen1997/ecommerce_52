@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_item, only: :destroy
 
   def index
     @orders = Order.feed_user_id(current_user.id)
@@ -12,7 +13,7 @@ class OrdersController < ApplicationController
 
   def show
     if @order = Order.find_by(id: params[:id])
-      @order_items = @order.order_items.includes(:product)
+      @order_items = @order.order_items.includes :product
     else
       flash[:success] = t ".not_show"
       redirect_to root_path
@@ -38,6 +39,15 @@ class OrdersController < ApplicationController
     end
   end
 
+  def destroy
+    if @orders.destroy
+      flash[:success] = t ".orders_dell"
+    else
+      flash[:danger] = t ".not_orders_dell"
+    end
+    redirect_to orders_path
+  end
+
   private
   def order_params
     params.require(:order).permit :receiver_name, :receiver_address,
@@ -48,5 +58,10 @@ class OrdersController < ApplicationController
     session[:cart] = []
     flash[:success] = t ".checkout_sucsess"
     redirect_to orders_path
+  end
+
+  def correct_item
+    @orders = Order.find_by id: params[:id]
+    redirect_to root_path unless @orders.present?
   end
 end

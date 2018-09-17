@@ -4,9 +4,16 @@ Rails.application.routes.draw do
     get "/", to: "static_page#index"
 
     resources :categories
-    resources :users
     resources :requests
     resources :orders
+    resources :products do
+      collection {post :import}
+    end
+    resources :users do
+      member do
+        post :role
+      end
+    end
   end
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"

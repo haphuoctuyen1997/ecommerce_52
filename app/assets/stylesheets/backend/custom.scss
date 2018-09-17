@@ -795,3 +795,17 @@ table.dataTable thead .sorting:after {
   padding-top: 5px;
 }
 
+select#category_id  {
+  width: 200px;
+  display: inline-block;
+}
+input#file{
+  width: 250px;
+  display: inline-block;
+}
+.form_import form{
+  float: left;
+  margin-right: 60px;
+  display: block;
+  margin-bottom: 20px;
+}

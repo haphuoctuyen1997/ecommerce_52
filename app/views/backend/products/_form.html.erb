@@ -1,0 +1,35 @@
+<div class="panel-body">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= form_for [:backend, @product] do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <div class="form-group">
+          <%= label_tag t ".name" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag t ".price" %>
+          <%= f.text_field :price, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag t ".quantity" %>
+          <%= f.text_field :quantity, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag t ".description" %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag t ".picture" %>
+          <%= f.file_field :picture, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag t ".category" %>
+          <%= f.select :category_id, load_data_categories(@categories), {}, { class: "form-control" } %>
+        </div>
+        <%= f.submit t(".submit"), class: "btn btn-default" %>
+        <%= f.button t(".reset"), type: :reset, class: "btn btn-default" %>
+      <% end %>
+    </div>
+  </div>
+</div>

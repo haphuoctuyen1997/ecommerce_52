@@ -24,6 +24,7 @@ gem "puma", "~> 3.7"
 gem "rails", "~> 5.2.1"
 gem "rails-assets-sweetalert2", source: "https://rails-assets.org"
 gem "rails-sweetalert2-confirm"
+gem "roo"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "therubyracer"

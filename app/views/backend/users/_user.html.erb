@@ -1,11 +1,13 @@
-<% unless user.admin? %>
-  <tr class="odd gradeX">
-    <td class="center"><%= user.id %></td>
-    <td class="center"><%= user.name %></td>
-    <td class="center"><%= user.email %></td>
-    <td class="center"><%= user.address %></td>
-    <td class="center"><%= user.phone %></td>
-    <td class="center"><%= user.role %></td>
-    <td><%= raw load_table_user user %></td>
-  </tr>
-<% end %>
+<tr class="odd gradeX">
+  <td class="center"><%= user.name %></td>
+  <td class="center"><%= user.email %></td>
+  <td class="center"><%= user.address %></td>
+  <td class="center"><%= user.phone %></td>
+  <td class="center">
+    <a id="admin-<%= user.id %>" class="admin btn btn-default <%= user.admin? ? 'hidden' : '' %>"
+    data-id="<%= user.id %>" ><%= t ".admin" %></a>
+    <a id="member-<%= user.id %>" class="member btn btn-default <%= user.admin? ? '' : 'hidden' %>"
+    data-id="<%= user.id %>" ><%= t ".member" %></a>
+  </td>
+  <td><%= raw load_table_user user %></td>
+</tr>
