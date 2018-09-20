@@ -28,7 +28,7 @@
       <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
-        <em><%= @minimum_password_length %><%= t "password_length" %></em>
+          <em><%= @minimum_password_length %><%= t "password_length" %></em>
         <% end %><br />
         <%= f.password_field :password, class: "form-control" %>
       </div>

@@ -1,7 +1,7 @@
 <p><%= @email %></p>
 
 <% if @resource.try(:unconfirmed_email?) %>
-  <p><%= t "confirm_account" %><%= @resource.unconfirmed_email %>.</p>
+  <p><%= t "confirm_account" %><%= @resource.unconfirmed_email %></p>
 <% else %>
-  <p><%= t "confirm_account" %><%= @resource.email %>.</p>
+  <p><%= t "confirm_account" %><%= @resource.email %></p>
 <% end %>
