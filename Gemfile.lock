@@ -229,6 +229,11 @@ GEM
       thor (>= 0.19.0, < 2.0)
     rainbow (3.0.0)
     rake (12.3.1)
+    ransack (2.0.1)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -263,6 +268,9 @@ GEM
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    simple_form (4.0.1)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -336,10 +344,12 @@ DEPENDENCIES
   rails (~> 5.2.1)
   rails-assets-sweetalert2!
   rails-sweetalert2-confirm
+  ransack
   roo
   rubocop (~> 0.54.0)
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_form (~> 4.0, >= 4.0.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

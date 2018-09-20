@@ -16,7 +16,7 @@ class Product < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   scope :newest, ->{order created_at: :desc}
-  scope :search, ->(key, cat_id) do
+  scope :search_by_name, ->(key, cat_id) do
     where "name LIKE ? OR category_id = ?", "%#{key}%", "%#{cat_id}%"
   end
   scope :search_by_key, ->(key) do

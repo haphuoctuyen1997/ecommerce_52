@@ -9,7 +9,7 @@ class Category < ApplicationRecord
   validates :parent_id, presence: true
 
   scope :newest, ->{order created_at: :desc}
-  scope :search, ->(key) do where "name LIKE ?", "%#{key}%" end
+  scope :search_name, ->(key) do where "name LIKE ?", "%#{key}%" end
   scope :find_parent, ->{where parent_id: 0}
   scope :find_child, ->(parent){where parent_id: parent.ids}
   scope :select_category, ->{where.not id: Category.pluck("parent_id")}
