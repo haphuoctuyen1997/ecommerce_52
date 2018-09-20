@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  USER_PARAMS = [:name, :address, :phone, :email, :password,
+    :password_confirmation].freeze
+
+  devise :database_authenticatable, :registerable, :validatable, :confirmable, :recoverable
+
   attr_accessor :remember_token
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -17,8 +22,6 @@ class User < ApplicationRecord
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, presence: true, length: {minimum: Settings.minimum.pass},
     allow_nil: true
-
-  has_secure_password
 
   enum role: {member: 0, admin: 1}
 

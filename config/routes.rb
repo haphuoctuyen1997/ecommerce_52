@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "static_pages#home"
   namespace :backend do
     get "/", to: "static_page#index"
@@ -15,14 +16,10 @@ Rails.application.routes.draw do
       end
     end
   end
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
-  get "/signup", to: "users#new"
 
   resources :suggests
   resources :comments, only: :create
-  resources :users
+  resources :users , only: :show
   resources :products
   resources :categories
   resources :orders do
