@@ -4,7 +4,7 @@ class Backend::CategoriesController < Backend::BaseController
 
   def index
     @categories = if params[:search].present?
-                    Category.search params[:search]
+                    Category.search_name params[:search]
                   else
                     Category
                   end.newest.paginate page: params[:page],

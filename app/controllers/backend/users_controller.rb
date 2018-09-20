@@ -7,7 +7,7 @@ class Backend::UsersController < Backend::BaseController
   def index
     @users = User.newest
     @users = if params[:search].present?
-               @users.search(params[:search])
+               @users.search_key(params[:search])
              else
                @users
              end
@@ -16,7 +16,7 @@ class Backend::UsersController < Backend::BaseController
   end
 
   def update
-    if @user.update_attributes user_params
+    if @user.update_without_password user_params
       flash[:success] = t ".user_updated"
       redirect_to backend_users_path
     else

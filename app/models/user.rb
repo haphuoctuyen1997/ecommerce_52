@@ -19,15 +19,11 @@ class User < ApplicationRecord
   validates :address, presence: true,
     length: {maximum: Settings.maximum.address}
   validates :phone, presence: true, length: {maximum: Settings.maximum.phone}
-  validates :email, presence: true, length: {maximum: Settings.maximum.email},
-    format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
-  validates :password, presence: true, length: {minimum: Settings.minimum.pass},
-    allow_nil: true
 
   enum role: {member: 0, admin: 1}
 
   scope :newest, ->{order created_at: :DESC}
-  scope :search, ->(key) do
+  scope :search_key, ->(key) do
     where "name LIKE ? OR email LIKE ?", "%#{key}%", "%#{key}%"
   end
 
