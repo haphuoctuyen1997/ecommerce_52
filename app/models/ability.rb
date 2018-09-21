@@ -8,6 +8,7 @@ class Ability
       else
         can :manage, User, id: user.id
         can :manage, Order, user_id: user.id
+        can :manage, Suggest
       end
     else
       can :read, :all

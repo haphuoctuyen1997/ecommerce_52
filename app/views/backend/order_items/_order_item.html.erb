@@ -1,6 +1,6 @@
 <tr>
   <td class="text-center">
-    <p><%= link_to image_tag(order_item.product_picture, class: "img_product_order"), order_item.product %></p>
+    <p><%= link_to image_tag(order_item.product_picture.thumb.url, class: "img_product_order"), order_item.product %></p>
     <%= order_item.product_name %>
   </td>
   <td class="text-right"><%= number_to_currency order_item.price %></td>

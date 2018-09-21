@@ -1,8 +1,5 @@
 class SuggestsController < ApplicationController
-  load_and_authorize_resource
-
-  before_action :authenticate_user!, only: %i(create new)
-
+  authorize_resource
   def index; end
 
   def new
